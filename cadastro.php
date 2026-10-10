@@ -12,8 +12,8 @@ require "dadosCadastro.php";
 </head>
 <body>
     <h3>Cadastro!!</h3>
-    <form action="">
-        <label for="">EMAIL</label>
+    <form action="cadastro.php" method="POST">
+        <label for="">Email</label>
         <input type="text"  name = "Email" placeholder="Email">
         <label for="">Usuario</label>
         <input type="text" name = "Usuario" placeholder = "Usuario">
@@ -21,6 +21,11 @@ require "dadosCadastro.php";
         <input type="number" name = "Senha" placeholder = "Senha">
         <button type="submit">Registrar</button>
     </form>
+    <?php
+        if(isset($mensagemCadastro)){
+            echo $mensagemCadastro;
+        }
+    ?>
 
     <p>Posuie Cadastro?: <a href="Login.php">Clique aqui</a></p>
 </body>
