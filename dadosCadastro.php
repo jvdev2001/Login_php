@@ -10,9 +10,13 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         $senhaUser = htmlspecialchars($_POST['Senha']);
         // chama a função 
         $emailValidacao = validaEmail($userEmail);
-        // verifica se o email e valido se nao for para aqui 
+        $senhavalidacao = validaSenha($senhaUser);
+        // verifica se o email e valido se nao for para aqui //
         if($emailValidacao!=="Email valido"){
             $mensagemCadastro = $emailValidacao;
+        // verifica se a senha e valida dentro do formulario usando a função //
+        }elseif($senhavalidacao!=='Senha valida'){
+            $mensagemCadastro = $senhavalidacao;
         }else{
             $_SESSION['Email'] = $userEmail;
             $_SESSION['Usuario'] = $user;
