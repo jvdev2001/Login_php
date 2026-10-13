@@ -1,5 +1,5 @@
 <?php
-session_start();
+require "dadosHome.php";
 $mensagemHome = "";
 
 $user="";
@@ -22,6 +22,28 @@ if(isset($_SESSION['usuario'])){
     <h3>Seja vem vindo :<?php echo $user?></h3>
 
     <p><?= $mensagemHome?></p>
-    <a href="logout.php">Logout</a>
+
+    <h3>Dados de cadastros:</h3>
+    <form action="home.php" method="POST">
+        <label for="">ClienteNome</label>
+        <input type="text" nome = "nomeCliente" placeholder = "cliente" value ="<?=htmlspecialchars($nomeClt ??  '')?>">
+        <label for="">Endereco</label>
+        <input type="text" nome="enderecoCliente" placeholder = "Endereco" value ="<?=htmlspecialchars($enderecoClt ?? '')?>">
+        <label for="">Telefone</label>
+        <input type="text" nome = "telefoneCliente" placeholder ="telefone" value="<?=htmlspecialchars($telefoneClt ?? '')?>"><br>
+        <label for="">CPF</label>
+        <input type="text" nome ="cpfCliente" placeholder = "CPF"  value = "<?=htmlspecialchars($cpfClt ?? '')?>">
+        <label for="">Email</label>
+        <input type="text" name="emailCliente" placeholder = "Email" value = "<?=htmlspecialchars($emailClt ?? '')?>">
+        <button type="submit">Enviar</button>
+        <br>
+        <?php
+            if(!empty($mensagemDadosHome)){
+                echo $mensagemDadosHome;
+            }
+        ?>
+    </form>
+    <P>sair do sistema: <a href="logout.php">Logout</a></P>
+    
 </body>
 </html>

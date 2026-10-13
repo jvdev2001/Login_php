@@ -2,7 +2,7 @@
 session_start();
 require "function.php";
 $mensagemCadastro ="";
-
+ 
 if($_SERVER['REQUEST_METHOD']=='POST'){
     if(!empty($_POST['Email']) && !empty($_POST['Usuario']) && !empty($_POST['Senha'])){
         $userEmail = htmlspecialchars($_POST['Email']);

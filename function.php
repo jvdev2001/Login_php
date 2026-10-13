@@ -31,4 +31,8 @@ function validaSenha(int $senha):string{
     }
 }
 
+
+/**
+ * Funcao para validacao de cpf do usuario 
+ */
 ?>
