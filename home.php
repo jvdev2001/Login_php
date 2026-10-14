@@ -26,13 +26,13 @@ if(isset($_SESSION['usuario'])){
     <h3>Dados de cadastros:</h3>
     <form action="home.php" method="POST">
         <label for="">ClienteNome</label>
-        <input type="text" nome = "nomeCliente" placeholder = "cliente" value ="<?=htmlspecialchars($nomeClt ??  '')?>">
+        <input type="text" name = "nomeCliente" placeholder = "cliente" value ="<?=htmlspecialchars($nomeClt ??  '')?>">
         <label for="">Endereco</label>
-        <input type="text" nome="enderecoCliente" placeholder = "Endereco" value ="<?=htmlspecialchars($enderecoClt ?? '')?>">
+        <input type="text"name="enderecoCliente" placeholder = "Endereco" value ="<?=htmlspecialchars($enderecoClt ?? '')?>">
         <label for="">Telefone</label>
-        <input type="text" nome = "telefoneCliente" placeholder ="telefone" value="<?=htmlspecialchars($telefoneClt ?? '')?>"><br>
+        <input type="text" name = "telefoneCliente" placeholder ="telefone" value="<?=htmlspecialchars($telefoneClt ?? '')?>"><br>
         <label for="">CPF</label>
-        <input type="text" nome ="cpfCliente" placeholder = "CPF"  value = "<?=htmlspecialchars($cpfClt ?? '')?>">
+        <input type="text" name ="cpfCliente" placeholder = "CPF"  value = "<?=htmlspecialchars($cpfClt ?? '')?>">
         <label for="">Email</label>
         <input type="text" name="emailCliente" placeholder = "Email" value = "<?=htmlspecialchars($emailClt ?? '')?>">
         <button type="submit">Enviar</button>

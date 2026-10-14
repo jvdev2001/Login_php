@@ -34,5 +34,16 @@ function validaSenha(int $senha):string{
 
 /**
  * Funcao para validacao de cpf do usuario 
+ * Funcao recebe parametro $cpf do tipo int e retorna se a valido ou nao os 11 digitos do cpf
+ * @param int $cpf
+ * @return string mensagem de validacao 
  */
+
+function validaCpf(int $cpf):string{
+    if(mb_strlen($cpf)<11){
+        return "Cpf invalido , necessario possuir 11 digitos";
+    }else{
+        return "cpf valido";
+    }
+}
 ?>
