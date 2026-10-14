@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+require "theme.php";
 $notificaMensagemLogin = "";
 
 if($_SERVER['REQUEST_METHOD']=='POST'){
@@ -10,6 +10,12 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         if($userLogin=='admin' && $userSenha=="3421"){
             $_SESSION['usuario'] = $userLogin;
             $_SESSION['Senha'] = $userSenha;
+            /**
+             * Verifica se  o post tema nao esta vazio
+             */
+            if(!empty($_POST['tema'])){
+                setcookie('tema',htmlspecialchars($_POST['tema']));
+            }
             $notificaMensagemLogin = "Login com sucesso";
             header('Location:home.php');
             exit();

@@ -27,6 +27,9 @@ require "dadosCadastro.php";
             echo $mensagemCadastro;
         }
     ?>
+    /**
+    Funcao criada para ocultar e mostrar senha 
+     */
     <script>
         function mostrarSenha(botao) {
             const inputSenha = document.getElementById('senha');

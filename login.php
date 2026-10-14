@@ -18,6 +18,10 @@ require "dadosLogin.php";
         <input type="password" name = "senha" id ="senha" placeholder= "Senha" value = "<?=htmlspecialchars($userSenha ?? '')?>">
         <button type="button"  onclick="mostrarSenha(this)">Mostrar</button>
         <button type = "submit">Entrar</button>
+        <select name="tema">
+            <option value="escuro">Escuro</option>
+            <option value="claro">Claro</option>
+        </select>
         <p>Não possuie cadastro ? <a href="cadastro.php">Clique aqui !!</a></p>
         <?php
             if(!empty($notificaMensagemLogin)){

@@ -1,12 +1,21 @@
 <?php
 require "dadosHome.php";
+require "theme.php";
 $mensagemHome = "";
 
+/**
+ * Criamos uma variavel $user 
+ * fazendo a validação usando a funcao iseet() com uma $_SESSION['Usuario'] 
+ * para verificar se o usuario existe na sessão ela grava na variavel $user o valor da sessão
+ * se nao existe ele retorna para a tela de login 
+ */
 $user="";
 if(isset($_SESSION['usuario'])){
     $user = $_SESSION['usuario']; 
 }else{
     $mensagemHome = "Usuario nao encontrado";
+    header('Location:login.php');
+    exit();
 }
 
 ?>
@@ -18,7 +27,7 @@ if(isset($_SESSION['usuario'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
 </head>
-<body>
+<body style="background-color:<?=$cor?>">
     <h3>Seja vem vindo :<?php echo $user?></h3>
 
     <p><?= $mensagemHome?></p>
