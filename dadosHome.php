@@ -3,6 +3,7 @@ session_start();
 require "function.php";
 
 
+
 $mensagemDadosHome = "";
 if($_SERVER['REQUEST_METHOD']=='POST'){
     if(!empty($_POST['nomeCliente']) && !empty($_POST['enderecoCliente'])&&!empty($_POST['telefoneCliente'])&&!empty($_POST['cpfCliente'])&&!empty($_POST['emailCliente'])){

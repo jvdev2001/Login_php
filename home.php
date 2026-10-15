@@ -10,7 +10,7 @@ $mensagemHome = "";
  * se nao existe ele retorna para a tela de login 
  */
 $user="";
-if(isset($_SESSION['usuario'])){
+if(!empty($_SESSION['usuario'])){
     $user = $_SESSION['usuario']; 
 }else{
     $mensagemHome = "Usuario nao encontrado";
@@ -27,7 +27,7 @@ if(isset($_SESSION['usuario'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
 </head>
-<body style="background-color:<?=$cor?>">
+<body style="background-color:<?=$corTema?>">
     <h3>Seja vem vindo :<?php echo $user?></h3>
 
     <p><?= $mensagemHome?></p>

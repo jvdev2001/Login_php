@@ -1,6 +1,6 @@
 <?php
 session_start();
-require "theme.php";
+
 $notificaMensagemLogin = "";
 
 if($_SERVER['REQUEST_METHOD']=='POST'){
