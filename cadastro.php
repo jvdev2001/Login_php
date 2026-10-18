@@ -1,5 +1,6 @@
 <?php
 require "dadosCadastro.php";
+
 ?>
 
 
@@ -21,15 +22,18 @@ require "dadosCadastro.php";
         <input type="password" name = "Senha" id = "senha" placeholder = "Senha" value = "<?=htmlspecialchars($userSenha ?? '')?>">
         <button type="button"  onclick="mostrarSenha(this)">Mostrar</button>
         <button type="submit">Registrar</button>
+
+        <?php if(notificaMensagemFormulario($mensagemErro)):?>
+            <p style = "color:red">
+                <?=$mensagemErro?>
+            </p>
+        <?php endif ?>
+        <?php if(notificaMensagemFormulario($mensagemSucesso)):?>
+            <p style ="color:green">
+                <?=$mensagemSucesso?>
+            </p>
+        <?php endif ?>    
     </form>
-    <?php
-        if(isset($mensagemCadastro)){
-            echo $mensagemCadastro;
-        }
-    ?>
-    /**
-    Funcao criada para ocultar e mostrar senha 
-     */
     <script>
         function mostrarSenha(botao) {
             const inputSenha = document.getElementById('senha');

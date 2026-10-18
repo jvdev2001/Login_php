@@ -1,7 +1,8 @@
 <?php
 session_start();
 require "function.php";
-$mensagemCadastro ="";
+$mensagemSucesso ="";
+$mensagemErro = "";
  
 if($_SERVER['REQUEST_METHOD']=='POST'){
     if(!empty($_POST['Email']) && !empty($_POST['Usuario']) && !empty($_POST['Senha'])){
@@ -13,10 +14,10 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         $senhavalidacao = validaSenha($senhaUser);
         // verifica se o email e valido se nao for para aqui //
         if($emailValidacao!=="Email valido"){
-            $mensagemCadastro = $emailValidacao;
+            $mensagemErro = $emailValidacao;
         // verifica se a senha e valida dentro do formulario usando a função //
         }elseif($senhavalidacao!=='Senha valida'){
-            $mensagemCadastro = $senhavalidacao;
+            $mensagemErro = $senhavalidacao;
         }else{
             $_SESSION['Email'] = $userEmail;
             $_SESSION['Usuario'] = $user;
@@ -26,7 +27,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         }
         
     }else{
-        $mensagemCadastro = "Preencha todos os campos de cadastro";
+        $mensagemErro = "Preencha todos os campos de cadastro";
     }
 }
 

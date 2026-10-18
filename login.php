@@ -1,5 +1,6 @@
 <?php
-require "dadosLogin.php";                                                                                                                                                                                       
+require "dadosLogin.php";
+require "function.php";                                                                                                                                                                                   
 ?>
 
 <!DOCTYPE html>
@@ -22,12 +23,17 @@ require "dadosLogin.php";
             <option value="escuro">Escuro</option>
             <option value="claro">Claro</option>
         </select>
+        <?php if(notificaMensagemFormulario($mensagemErro)):?>
+             <p style ="color:red">
+                <?=$mensagemErro?>
+            </p>
+        <?php endif?>
+        <?php if(notificaMensagemFormulario($mensagemSucesso)):?>
+            <p style = "color:green">
+                <?=$mensagemSucesso?>
+            </p>
+        <?php endif?>
         <p>Não possuie cadastro ? <a href="cadastro.php">Clique aqui !!</a></p>
-        <?php
-            if(!empty($notificaMensagemLogin)){
-            echo $notificaMensagemLogin;
-        }
-    ?>
    </form>
    <script>
     /**

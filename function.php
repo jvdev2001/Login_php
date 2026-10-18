@@ -40,10 +40,26 @@ function validaSenha(int $senha):string{
  */
 
 function validaCpf(int $cpf):string{
-    if(mb_strlen($cpf)<11){
+    if(mb_strlen($cpf)!==11){
         return "Cpf invalido , necessario possuir 11 digitos";
     }else{
         return "cpf valido";
+    }
+}
+
+/**
+ * Funcao usada para notificarMensagem de erro para usuario dentro do formulario 
+ * funcao recebe  apenas um parametro $notificaErro e retorna true ou false com base na condição 
+ * @param  string $notificaErro
+ * @return true  se  a notifiação de erro nao estiver vazia e se metodo da requisição for post
+ * @return false se a notificação estiver vazia e a requisição nao for post 
+ */
+
+function notificaMensagemFormulario( string $notificaErro):bool{
+    if(!empty($notificaErro) && $_SERVER['REQUEST_METHOD']=='POST' ){
+        return true;
+    }else{
+        return false;
     }
 }
 ?>

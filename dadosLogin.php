@@ -1,7 +1,8 @@
 <?php
 session_start();
 
-$notificaMensagemLogin = "";
+$mensagemSucesso = "";
+$mensagemErro = "";
 
 if($_SERVER['REQUEST_METHOD']=='POST'){
     if(!empty($_POST['usuario']) && !empty($_POST['senha'])){
@@ -16,17 +17,17 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
             if(!empty($_POST['tema'])){
                 setcookie('tema',htmlspecialchars($_POST['tema']));
             }
-            $notificaMensagemLogin = "Login com sucesso";
+            $mensagemSucesso = "Login com sucesso";
             header('Location:home.php');
             exit();
         }else{
-            $notificaMensagemLogin = "Senha ou usuarios incorretos";
+            $mensagemErro = "Senha ou usuarios incorretos";
         }
     }else{
-        $notificaMensagemLogin = "Preencha todos os  campos";
+        $mensagemErro = "Preencha todos os  campos";
     }
 }else{
-    $notificaMensagemLogin = "Formulario nao enviado";
+    $mensagemErro = "Formulario nao enviado";
 }
 
 ?>
