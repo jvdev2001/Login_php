@@ -1,6 +1,7 @@
 <?php
 require "dadosHome.php";
 require "theme.php";
+
 $mensagemHome = "";
 
 /**
@@ -46,11 +47,16 @@ if(!empty($_SESSION['usuario'])){
         <input type="text" name="emailCliente" placeholder = "Email" value = "<?=htmlspecialchars($emailClt ?? '')?>">
         <button type="submit">Enviar</button>
         <br>
-        <?php
-            if(!empty($mensagemDadosHome)){
-                echo $mensagemDadosHome;
-            }
-        ?>
+        <?php if(notificaMensagemFormulario($mensagemErro)):?>
+            <p style = "color:red">
+                <?=$mensagemErro?>
+            </p>
+        <?php endif?>
+        <?php if(notificaMensagemFormulario($mensagemSucesso)):?>
+            <p style = "color:green">
+                <?=$mensagemSucesso ?>
+            </p>
+        <?php endif?>
     </form>
     <P>sair do sistema: <a href="logout.php">Logout</a></P>
     

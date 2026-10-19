@@ -2,9 +2,9 @@
 session_start();
 require "function.php";
 
+$mensagemErro = "";
+$mensagemSucesso = "";
 
-
-$mensagemDadosHome = "";
 if($_SERVER['REQUEST_METHOD']=='POST'){
     if(!empty($_POST['nomeCliente']) && !empty($_POST['enderecoCliente'])&&!empty($_POST['telefoneCliente'])&&!empty($_POST['cpfCliente'])&&!empty($_POST['emailCliente'])){
         $nomeClt = htmlspecialchars($_POST['nomeCliente']);
@@ -20,9 +20,9 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         $validaEmailClt = validaEmail($emailClt);
 
         if($validaCpfClt!=='cpf valido'){
-            $mensagemDadosHome = $validaCpfClt;
+            $mensagemErro = $validaCpfClt;
         }elseif($validaEmailClt!=='Email valido'){
-            $mensagemDadosHome = $validaEmailClt;
+            $mensagemErro = $validaEmailClt;
         }else{
             $_SESSION['nomeCliente'] = $nomeClt;
             $_SESSION['telefoneCliente'] = $telefoneClt;
@@ -31,10 +31,10 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
             $_SESSION['enderecoCliente'] = $enderecoClt;
         } 
     }else{
-        $mensagemDadosHome = "Preencha todos os campos";
+        $mensagemErro = "Preencha todos os campos";
     }
     
 }else{
-    $mensagemDadosHome = "Formulario nao enviado ";
+    $mensagemErro = "Formulario nao enviado ";
 }
 ?>

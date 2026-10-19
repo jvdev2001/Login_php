@@ -24,7 +24,7 @@ function validaEmail(string $email):string{
  */
 
 function validaSenha(int $senha):string{
-    if(mb_strlen($senha)<=5){
+    if(mb_strlen($senha)!==6){
         return "Senha precisa ter pelo menos 6 caracteres ou mais ";
     }else{
         return "Senha valida";
