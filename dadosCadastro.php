@@ -12,13 +12,16 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         // chama a função 
         $emailValidacao = validaEmail($userEmail);
         $senhavalidacao = validaSenha($senhaUser);
-        // verifica se o email e valido se nao for para aqui //
-        if($emailValidacao!=="Email valido"){
+
+        $user=trim($user);
+        if(empty($user)){
+            $mensagemErro = "Campo usuario vazio";
+        }elseif($emailValidacao!=="Email valido"){
             $mensagemErro = $emailValidacao;
-        // verifica se a senha e valida dentro do formulario usando a função //
         }elseif($senhavalidacao!=='Senha valida'){
             $mensagemErro = $senhavalidacao;
         }else{
+            $mensagemSucesso = "Cadastro realizado com sucesso";
             $_SESSION['Email'] = $userEmail;
             $_SESSION['Usuario'] = $user;
             $_SESSION['Senha'] = $senhaUser;
